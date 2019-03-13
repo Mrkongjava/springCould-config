@@ -1,4 +1,4 @@
-﻿spring:
+﻿spring:  #配置模式，---为分隔符
   profiles:
       active:
       - dev
