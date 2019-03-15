@@ -1,41 +1,41 @@
-spring:  #ÅäÖÃÄ£Ê½£¬---Îª·Ö¸ô·û
+ï»¿spring:  #é…ç½®æ¨¡å¼ï¼Œ---ä¸ºåˆ†éš”ç¬¦
   profiles:
       active:
       - dev
 ---
 server:
-  port:  8001  #×¢²áÖĞĞÄÕ¼ÓÃ7001¶Ë¿Ú£¬Ã°ºÅºóÃæ±ØĞëÒªÓĞ¿Õ¸ñ.
+  port:  8001  #æ³¨å†Œä¸­å¿ƒå ç”¨7001ç«¯å£ï¼Œå†’å·åé¢å¿…é¡»è¦æœ‰ç©ºæ ¼.
 
 spring:
-   profiles: dev #²âÊÔ»·¾³
+   profiles: dev #æµ‹è¯•ç¯å¢ƒ
    application:
-    name: microservicecloud-config-dept-client 				#Î¢·şÎñµÄÃû×Ö£¬Ê®·ÖÖØÒª£¨¶ÔÍâ±©Â¶µÄÎ¢·şÎñÃû£¬¼´×¢²áµ½eureka-serverÖĞµÄÊ±ºò£¬¸ÃÎ¢·şÎñµÄ·şÎñÃû³Æ£©
+    name: microservicecloud-config-dept-client 				#å¾®æœåŠ¡çš„åå­—ï¼Œååˆ†é‡è¦ï¼ˆå¯¹å¤–æš´éœ²çš„å¾®æœåŠ¡åï¼Œå³æ³¨å†Œåˆ°eureka-serverä¸­çš„æ—¶å€™ï¼Œè¯¥å¾®æœåŠ¡çš„æœåŠ¡åç§°ï¼‰
    datasource:
-    type: com.alibaba.druid.pool.DruidDataSource            # µ±Ç°Êı¾İÔ´²Ù×÷ÀàĞÍ
-    driver-class-name: org.gjt.mm.mysql.Driver              # mysqlÇı¶¯°ü
-    url: jdbc:mysql://localhost:3306/springCould01            # Êı¾İ¿âÃû³Æ
+    type: com.alibaba.druid.pool.DruidDataSource            # å½“å‰æ•°æ®æºæ“ä½œç±»å‹
+    driver-class-name: org.gjt.mm.mysql.Driver              # mysqlé©±åŠ¨åŒ…
+    url: jdbc:mysql://localhost:3306/springCould01            # æ•°æ®åº“åç§°
     username: root
     password: root
     dbcp2:
-      min-idle: 5                                           # Êı¾İ¿âÁ¬½Ó³ØµÄ×îĞ¡Î¬³ÖÁ¬½ÓÊı
-      initial-size: 5                                       # ³õÊ¼»¯Á¬½ÓÊı
-      max-total: 5                                          # ×î´óÁ¬½ÓÊı
-      max-wait-millis: 200                                  # µÈ´ıÁ¬½Ó»ñÈ¡µÄ×î´ó³¬Ê±Ê±¼ä
+      min-idle: 5                                           # æ•°æ®åº“è¿æ¥æ± çš„æœ€å°ç»´æŒè¿æ¥æ•°
+      initial-size: 5                                       # åˆå§‹åŒ–è¿æ¥æ•°
+      max-total: 5                                          # æœ€å¤§è¿æ¥æ•°
+      max-wait-millis: 200                                  # ç­‰å¾…è¿æ¥è·å–çš„æœ€å¤§è¶…æ—¶æ—¶é—´
 
-#mybatisµÄÕûºÏ
+#mybatisçš„æ•´åˆ
 mybatis:
-  config-location: classpath:mybatis/mybatis.cfg.xml        # mybatisÅäÖÃÎÄ¼şËùÔÚÂ·¾¶
-  type-aliases-package: com.atguigu.springcloud.entities    # ËùÓĞEntity±ğÃûÀàËùÔÚ°ü
+  config-location: classpath:mybatis/mybatis.cfg.xml        # mybatisé…ç½®æ–‡ä»¶æ‰€åœ¨è·¯å¾„
+  type-aliases-package: com.atguigu.springcloud.entities    # æ‰€æœ‰Entityåˆ«åç±»æ‰€åœ¨åŒ…
   mapper-locations:
-  - classpath:mybatis/mapper/**/*.xml                       # mapperÓ³ÉäÎÄ¼ş£¨±íÊ¾É¨Ãè¸ÃÂ·¾¶ÏÂµÄËùÓĞxmlÎÄ¼ş£¬×÷ÎªmybatisµÄmapper.xmlÎÄ¼ş£©
+  - classpath:mybatis/mapper/**/*.xml                       # mapperæ˜ å°„æ–‡ä»¶ï¼ˆè¡¨ç¤ºæ‰«æè¯¥è·¯å¾„ä¸‹çš„æ‰€æœ‰xmlæ–‡ä»¶ï¼Œä½œä¸ºmybatisçš„mapper.xmlæ–‡ä»¶ï¼‰
 
 eureka:
-  client: #¿Í»§¶Ë×¢²á½øeureka·şÎñÁĞ±íÄÚ
+  client: #å®¢æˆ·ç«¯æ³¨å†Œè¿›eurekaæœåŠ¡åˆ—è¡¨å†…
     service-url:
       defaultZone: http://eureka7001.com:7001/eureka/
   instance:
     instance-id: dept-8001.com
-    prefer-ip-address: true     #·ÃÎÊÂ·¾¶¿ÉÒÔÏÔÊ¾IPµØÖ·
+    prefer-ip-address: true     #è®¿é—®è·¯å¾„å¯ä»¥æ˜¾ç¤ºIPåœ°å€
 
 info:
   app.name: atguigu-microservicecloud-springcloudconfig01
@@ -44,45 +44,45 @@ info:
   build.version: $project.version$
 ---
 server:
-  port:  8001  #×¢²áÖĞĞÄÕ¼ÓÃ7001¶Ë¿Ú£¬Ã°ºÅºóÃæ±ØĞëÒªÓĞ¿Õ¸ñ.
+  port:  8001  #æ³¨å†Œä¸­å¿ƒå ç”¨7001ç«¯å£ï¼Œå†’å·åé¢å¿…é¡»è¦æœ‰ç©ºæ ¼.
 
 spring:
-   profiles: test #²âÊÔ»·¾³
+   profiles: test #æµ‹è¯•ç¯å¢ƒ
    application:
-    name: microservicecloud-config-dept-client 				#Î¢·şÎñµÄÃû×Ö£¬Ê®·ÖÖØÒª£¨¶ÔÍâ±©Â¶µÄÎ¢·şÎñÃû£¬¼´×¢²áµ½eureka-serverÖĞµÄÊ±ºò£¬¸ÃÎ¢·şÎñµÄ·şÎñÃû³Æ£©
+    name: microservicecloud-config-dept-client 				#å¾®æœåŠ¡çš„åå­—ï¼Œååˆ†é‡è¦ï¼ˆå¯¹å¤–æš´éœ²çš„å¾®æœåŠ¡åï¼Œå³æ³¨å†Œåˆ°eureka-serverä¸­çš„æ—¶å€™ï¼Œè¯¥å¾®æœåŠ¡çš„æœåŠ¡åç§°ï¼‰
    datasource:
-    type: com.alibaba.druid.pool.DruidDataSource            # µ±Ç°Êı¾İÔ´²Ù×÷ÀàĞÍ
-    driver-class-name: org.gjt.mm.mysql.Driver              # mysqlÇı¶¯°ü
-    url: jdbc:mysql://localhost:3306/springCould02            # Êı¾İ¿âÃû³Æ
+    type: com.alibaba.druid.pool.DruidDataSource            # å½“å‰æ•°æ®æºæ“ä½œç±»å‹
+    driver-class-name: org.gjt.mm.mysql.Driver              # mysqlé©±åŠ¨åŒ…
+    url: jdbc:mysql://localhost:3306/springCould02            # æ•°æ®åº“åç§°
     username: root
     password: root
     dbcp2:
-      min-idle: 5                                           # Êı¾İ¿âÁ¬½Ó³ØµÄ×îĞ¡Î¬³ÖÁ¬½ÓÊı
-      initial-size: 5                                       # ³õÊ¼»¯Á¬½ÓÊı
-      max-total: 5                                          # ×î´óÁ¬½ÓÊı
-      max-wait-millis: 200                                  # µÈ´ıÁ¬½Ó»ñÈ¡µÄ×î´ó³¬Ê±Ê±¼ä
+      min-idle: 5                                           # æ•°æ®åº“è¿æ¥æ± çš„æœ€å°ç»´æŒè¿æ¥æ•°
+      initial-size: 5                                       # åˆå§‹åŒ–è¿æ¥æ•°
+      max-total: 5                                          # æœ€å¤§è¿æ¥æ•°
+      max-wait-millis: 200                                  # ç­‰å¾…è¿æ¥è·å–çš„æœ€å¤§è¶…æ—¶æ—¶é—´
 
-#mybatisµÄÕûºÏ
+#mybatisçš„æ•´åˆ
 mybatis:
-  config-location: classpath:mybatis/mybatis.cfg.xml        # mybatisÅäÖÃÎÄ¼şËùÔÚÂ·¾¶
-  type-aliases-package: com.atguigu.springcloud.entities    # ËùÓĞEntity±ğÃûÀàËùÔÚ°ü
+  config-location: classpath:mybatis/mybatis.cfg.xml        # mybatisé…ç½®æ–‡ä»¶æ‰€åœ¨è·¯å¾„
+  type-aliases-package: com.atguigu.springcloud.entities    # æ‰€æœ‰Entityåˆ«åç±»æ‰€åœ¨åŒ…
   mapper-locations:
-  - classpath:mybatis/mapper/**/*.xml                       # mapperÓ³ÉäÎÄ¼ş£¨±íÊ¾É¨Ãè¸ÃÂ·¾¶ÏÂµÄËùÓĞxmlÎÄ¼ş£¬×÷ÎªmybatisµÄmapper.xmlÎÄ¼ş£©
+  - classpath:mybatis/mapper/**/*.xml                       # mapperæ˜ å°„æ–‡ä»¶ï¼ˆè¡¨ç¤ºæ‰«æè¯¥è·¯å¾„ä¸‹çš„æ‰€æœ‰xmlæ–‡ä»¶ï¼Œä½œä¸ºmybatisçš„mapper.xmlæ–‡ä»¶ï¼‰
 
 eureka:
-  client: #¿Í»§¶Ë×¢²á½øeureka·şÎñÁĞ±íÄÚ
+  client: #å®¢æˆ·ç«¯æ³¨å†Œè¿›eurekaæœåŠ¡åˆ—è¡¨å†…
     service-url:
       defaultZone: http://eureka7001.com:7001/eureka/
   instance:
     instance-id: dept-8001.com
-    prefer-ip-address: true     #·ÃÎÊÂ·¾¶¿ÉÒÔÏÔÊ¾IPµØÖ·
+    prefer-ip-address: true     #è®¿é—®è·¯å¾„å¯ä»¥æ˜¾ç¤ºIPåœ°å€
 
 info:
   app.name: atguigu-microservicecloud-springcloudconfig01
   company.name: www.atguigu.com
   build.artifactId: $project.artifactId$
   build.version: $project.version$
-# Çë±£´æÎªUTF-8¸ñÊ½
+# è¯·ä¿å­˜ä¸ºUTF-8æ ¼å¼
  
  
  
